@@ -2,7 +2,7 @@
 import os
 from langchain_groq import ChatGroq
 
-os.environ["GROQ_API_KEY"] = ""
+os.environ["] = ""
 
 
 
