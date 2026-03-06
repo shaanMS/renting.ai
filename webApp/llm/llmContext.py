@@ -2,7 +2,7 @@
 import os
 from langchain_groq import ChatGroq
 
-os.environ["] = ""
+# os.environ[] = ""
 
 
 
