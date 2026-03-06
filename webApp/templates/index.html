@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Property Search</title>
+</head>
+<body>
+
+<h2>Property Search</h2>
+
+<input type="text" id="query" placeholder="Enter search query">
+<button onclick="search()">Search</button>
+
+<h3>Response:</h3>
+<pre id="output"></pre>
+
+<script>
+
+async function search(){
+
+    const query = document.getElementById("query").value
+
+    const response = await fetch("http://127.0.0.1:8000/stream",{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+            query:query
+        })
+    })
+
+    const reader = response.body.getReader()
+    const decoder = new TextDecoder()
+
+    const output = document.getElementById("output")
+    output.textContent = ""
+
+    while(true){
+
+        const {done,value} = await reader.read()
+
+        if(done) break
+
+        const chunk = decoder.decode(value)
+
+        output.textContent += chunk
+    }
+
+}
+
+</script>
+
+</body>
+</html>
