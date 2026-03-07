@@ -6,7 +6,8 @@ import os
 from langchainRag.promptTemplate import createTemplate
 from databases.database import getDescription
 from embeddingService.queryDispatcherService import dispatchQuery
-from vectorService.vectorSearch import searchInVector
+# from vectorService.vectorSearch import searchInVector 
+from vectorService.vectorSearchService import searchInVector
 
 #   local storage ka use karo frntend m , token ka or koi bhi python se use na kar paaye isliye apu hide karo to hi accha hai or 1 min ka throttle banao 
 
@@ -15,7 +16,7 @@ load_dotenv()
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
-def generateResponse(template, query):
+async def generateResponse(template, query):
 
   llm = ChatGroq(
     model="llama-3.1-8b-instant",
@@ -25,20 +26,32 @@ def generateResponse(template, query):
 # print(llm.invoke("hello"))
   
   
-  embeddings = dispatchQuery(query)
+  # embeddings = dispatchQuery(query)
   
-  vectorResults = searchInVector(embeddings)
+  # vectorResults = searchInVector(embeddings)
   
   
+  # results = getDescription(vectorResults)
+  
+  # prompt = createTemplate(template)
+
+
+  # chain = prompt | llm
+
+
+  
+  
+  # 1️⃣ query embedding
+  embeddings = await dispatchQuery(query)
+
+    # 2️⃣ vector search
+  vectorResults = await searchInVector(embeddings)
+
+    # 3️⃣ database fetch
   results = getDescription(vectorResults)
-  
+
+    # 4️⃣ prompt
   prompt = createTemplate(template)
-
-
-  chain = prompt | llm
-
-
-
 
   
 

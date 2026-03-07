@@ -4,7 +4,7 @@ import requests
 
 serviceUrl = "https://shaanSidd-embedder.hf.space/embed"
 
-def dispatchQuery(query:str) -> list:
+async def dispatchQuery(query:str) -> list:
     
     
     try:

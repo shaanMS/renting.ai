@@ -64,11 +64,11 @@ async def generate_streaming_response(template, query, session_id):
             await asyncio.sleep(0.5)
         
         # Get actual response from LLM
-        result = generateResponse(template, query)
+        result = await generateResponse(template, query)
         
         if not result or result.strip() == "":
             result = "Sorry, I couldn't find any relevant properties matching your criteria."
-        
+            
         # Stream the response character by character for typing effect
         current_text = ""
         words = result.split()
