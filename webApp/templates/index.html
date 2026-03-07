@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <title>Property Search</title>
@@ -50,5 +50,107 @@ async function search(){
 
 </script>
 
+</body>
+</html> -->
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - Real Estate Assistant</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">
+                    <i class="fas fa-home"></i>
+                    Property<span>Search</span>
+                </h1>
+            </div>
+            
+            <div class="sidebar-content">
+                <div class="new-chat-btn" onclick="startNewChat()">
+                    <i class="fas fa-plus"></i>
+                    New Search
+                </div>
+                
+                <div class="conversation-history">
+                    <h3>Recent Searches</h3>
+                    <div id="history-list" class="history-list">
+                        <!-- History items will be added here -->
+                    </div>
+                </div>
+                
+                <div class="sidebar-footer">
+                    <div class="user-info">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Guest User</span>
+                    </div>
+                    <button class="clear-history" onclick="clearHistory()">
+                        <i class="fas fa-trash"></i>
+                        Clear History
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="main-content">
+            <div class="chat-header">
+                <h2>Real Estate AI Assistant</h2>
+                <p>Ask me about properties, prices, locations, and more</p>
+            </div>
+            
+            <div id="chat-messages" class="chat-messages">
+                <!-- Welcome Message -->
+                <div class="message welcome">
+                    <div class="avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <p>👋 Hello! I'm your real estate assistant. I can help you find:</p>
+                        <ul>
+                            <li>🏠 Properties for sale or rent</li>
+                            <li>💰 Price estimates and market trends</li>
+                            <li>📍 Location insights and neighborhood info</li>
+                            <li>📊 Property comparisons</li>
+                        </ul>
+                        <p>What would you like to know?</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="input-container">
+                <form id="search-form" onsubmit="sendMessage(event)">
+                    <input 
+                        type="text" 
+                        id="query-input" 
+                        placeholder="Type your question here... (e.g., 'Show me 3BHK flats in Mumbai under 2 crore')"
+                        autocomplete="off"
+                    >
+                    <button type="submit" id="send-button">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+                <div class="input-footer">
+                    <span><i class="fas fa-lightbulb"></i> Try: "Luxury villas in Goa" or "Commercial spaces in Bangalore"</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/js/chat.js"></script>
 </body>
 </html>
