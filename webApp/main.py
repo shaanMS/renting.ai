@@ -7,14 +7,29 @@ import asyncio
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
-
+from llm.llmContext import generateResponse
 
 from fastapi.responses import StreamingResponse
 
 
 '''to do :-   translation before vector creation and tranlated embeddings in origin vector db dono m apply karo '''
 
+template = """
+You are a real estate assistant.
 
+Use ONLY the provided context.
+
+If answer not found say:
+"Sorry, relevant property not found."
+
+Context:
+{context}
+
+User Question:
+{question}
+
+Answer in Hinglish.
+"""
 
 # app = FastAPI()
 
@@ -47,9 +62,9 @@ from fastapi.responses import StreamingResponse
     
     
     
+    # frontend par accha font lagao or animation waitiong like for reponse 
     
-    
-    
+    #  enter key se prompt 5 answer in a session ---> login -> buy tokens etc 
 
 app = FastAPI()
 
@@ -70,13 +85,16 @@ async def home(request: Request):
 
 
 
-async def fake_stream():
-
-    text = "Bangladesh imposed daily limits on fuel sales: सरकार द्वारा तय नई सीमा के तहत अब पेट्रोल पंपों पर एक दिन में मोटरसाइकिल  सरकार द्वारा तय नई सीमा के तहत अब पेट्रोल पंपों पर एक दिन में मोटरसाइकिल  सरकार द्वारा तय नई सीमा के तहत अब पेट्रोल पंपों पर एक दिन में मोटरसाइकिल  सरकार द्वारा तय नई सीमा के तहत अब पेट्रोल पंपों पर एक दिन में मोटरसाइकिल  सरकार द्वारा तय नई सीमा के तहत अब पेट्रोल पंपों पर एक दिन में मोटरसाइकिल  सरकार द्वारा तय नई सीमा के तहत अब पेट्रोल पंपों पर एक दिन में मोटरसाइकिल  सरकार द्वारा तय नई सीमा के तहत अब पेट्रोल पंपों पर एक दिन में मोटरसाइकिल को अधिकतम 2 लीटर पेट्रोल/ऑक्टेन ही दिया जाएगा, जबकि निजी कारों को एक दिन में अधिकतम 10 "
+async def fake_stream(template , query):
+    
+    
+    result = generateResponse(template,query)
+    
+    
     i = 0 
-    for ch in text:
+    for ch in result:
         i +=1
-        if i%29 ==0:
+        if i%1000 ==0:
              
          yield "\n"
         
@@ -93,56 +111,68 @@ async def fake_stream():
     
     
     
-async def event_generator(query: str):
+# async def event_generator(query: str):
 
-    words = [
-        "Processing",
-        "your",
-        "query:",
-        query,
-        "...",
-        "Result",
-        "will",
-        "come",
-        "here"
-    ]
+#     words = [
+#         "Processing",
+#         "your",
+#         "query:",
+#         query,
+#         "...",
+#         "Result",
+#         "will",
+#         "come",
+#         "here"
+#     ]
 
-    for word in words:
+#     for word in words:
 
-        yield {
-            "event": "message",
-            "data": word
-        }
+#         yield {
+#             "event": "message",
+#             "data": word
+#         }
 
-        await asyncio.sleep(1)
+#         await asyncio.sleep(1)
 
 
 # --------------------------------
 # SSE Endpoint
 # --------------------------------
 
-# @app.post("/stream")
-# async def stream_response(request: Request):
-
-#     body = await request.json()
-
-#     query = body.get("query", "")
-    
-    
-    
-    
-#     return EventSourceResponse(
-#         event_generator(query)
-#     )
-    
-    
-    
-    
-    
 @app.post("/stream")
-async def stream():
+async def stream_response(request: Request):
 
+    body = await request.json()
+
+    query = body.get("query", "")
+    
+    
+    
+    
+    # return EventSourceResponse(
+    #     event_generator(query)
+    # )
     return StreamingResponse(
-        fake_stream(),
+        fake_stream(template,query),
         media_type="text/event-stream"
     )
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+# @app.post("/stream")
+# async def stream():
+    
+#     return StreamingResponse(
+#         fake_stream(),
+#         media_type="text/event-stream"
+#     )

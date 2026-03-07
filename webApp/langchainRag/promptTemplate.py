@@ -1,26 +1,26 @@
 from langchain.prompts import PromptTemplate
 
 
+def createTemplate(template):
+# template = """
+# You are a real estate assistant.
 
-template = """
-You are a real estate assistant.
+# Use ONLY the provided context.
 
-Use ONLY the provided context.
+# If answer not found say:
+# "Sorry, relevant property not found."
 
-If answer not found say:
-"Sorry, relevant property not found."
+# Context:
+# {context}
 
-Context:
-{context}
+# User Question:
+# {question}
 
-User Question:
-{question}
+# Answer in Hinglish.
+# """
 
-Answer in Hinglish.
-"""
-
-prompt = PromptTemplate(
+ prompt = PromptTemplate(
     template=template,
     input_variables=["context","question"]
-)
-
+ )
+ return prompt
