@@ -29,7 +29,7 @@ Context:
 User Question:
 {question}
 
-Answer in Hinglish.
+Answer in Hinglish.Leave Spaces or Line change in Context for each listings OK!
 """
 
 app = FastAPI(title="Property Search AI", description="Real Estate AI Assistant")
@@ -64,7 +64,7 @@ async def generate_streaming_response(template, query, session_id):
             await asyncio.sleep(0.5)
         
         # Get actual response from LLM
-        result = await generateResponse(template, query)
+        result =  generateResponse(template, query)
         
         if not result or result.strip() == "":
             result = "Sorry, I couldn't find any relevant properties matching your criteria."

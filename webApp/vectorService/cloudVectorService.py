@@ -150,7 +150,7 @@ client = QdrantClient(
 # SERVICE FUNCTION
 # -----------------------------
 
-async def upload_embeddings_service():
+def upload_embeddings_service():
 
     print("🔌 Connected to Qdrant Cloud")
 

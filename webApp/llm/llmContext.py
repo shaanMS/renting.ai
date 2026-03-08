@@ -16,13 +16,13 @@ load_dotenv()
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
-async def generateResponse(template, query):
+def generateResponse(template, query):
 
   llm = ChatGroq(
     model="llama-3.1-8b-instant",
     temperature=0.2
   )
-
+  
 # print(llm.invoke("hello"))
   
   
@@ -36,16 +36,16 @@ async def generateResponse(template, query):
   # prompt = createTemplate(template)
 
 
-  # chain = prompt | llm
+  # 
 
 
   
   
   # 1️⃣ query embedding
-  embeddings = await dispatchQuery(query)
-
+  embeddings =  dispatchQuery(query)
+  
     # 2️⃣ vector search
-  vectorResults = await searchInVector(embeddings)
+  vectorResults =  searchInVector(embeddings)
 
     # 3️⃣ database fetch
   results = getDescription(vectorResults)
@@ -53,13 +53,13 @@ async def generateResponse(template, query):
     # 4️⃣ prompt
   prompt = createTemplate(template)
 
-  
+  chain = prompt | llm
 
   context = ""
    
   for r in results:
     context += f"""
-  Property ID: {r['ad_id']}
+  # Property ID: {r['ad_id']}
   Type: {r['property_type']}
   Purpose: {r['purpose']}
   City: {r['city']}
@@ -70,7 +70,7 @@ async def generateResponse(template, query):
    ---------------------
   """
 
-
+  print('\n\n\n\n  context    ',context)
 
   response = chain.invoke({
     "context": context,

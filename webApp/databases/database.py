@@ -74,5 +74,5 @@ def getDescription(results):
     rows = cursor.fetchall()
 
     conn.close()
-
+    print([dict(row) for row in rows])
     return [dict(row) for row in rows]

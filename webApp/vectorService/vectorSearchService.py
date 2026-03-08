@@ -17,7 +17,7 @@ client = QdrantClient(
 )
 
 
-async def searchInVector(embedding: list, limit: int = 5):
+def searchInVector(embedding: list, limit: int = 5):
 
     results = client.query_points(
         collection_name=COLLECTION_NAME,
@@ -25,13 +25,20 @@ async def searchInVector(embedding: list, limit: int = 5):
         limit=limit
     )
 
-    ad_ids = []
-    print(type(results))
-    print(results)
-    print(type(results[0]))
-    print(results[0])
-    for point,score in results:  
-        
-        ad_ids.append(point.payload["ad_id"])
-         
-    return ad_ids         
+    # ad_ids = []
+    # print(type(results.points))
+    # print(results)
+    # print('====   ',  results.points[0])
+    # print('-------------   ',type(results.point[0]))
+    # print(type(results[0]))
+    # print(results[0])
+    # for point in results.points:  
+    
+    #     # a d_ids.append(point.payload["ad_id"])
+    #     ad_ids.append({
+    #     "ad_id": point.payload["ad_id"],
+    #     "score": point.score
+    # })
+
+    print(results)    
+    return results        

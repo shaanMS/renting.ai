@@ -7,3 +7,6 @@ properties.csv
 rentals.db
 
 toDo.txt
+
+__pycache__
+*.db
