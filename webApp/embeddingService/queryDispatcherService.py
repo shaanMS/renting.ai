@@ -1,8 +1,13 @@
-
-
+import os
+from dotenv import load_dotenv
 import requests
 
-serviceUrl = "https://shaanSidd-embedder.hf.space/embed"
+load_dotenv()
+
+
+
+
+serviceUrl = os.getenv('serviceUrl')
 
 def dispatchQuery(query:str) -> list:
     
