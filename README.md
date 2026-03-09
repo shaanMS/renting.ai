@@ -26,20 +26,46 @@
 <br/>
 
 ---
+## 📋 Table of Contents
 
-📋 Table of Contents
+- 🎯 [Project Overview](#project-overview)  
+  _What is renting.ai?_
 
-· 🎯 Overview
-· ⭐ Key Features
-· 🛠️ Tech Stack
-· 📁 Project Structure
-· 🚀 Quick Setup
-· 🧠 How It Works
-· 📊 Data Pipeline
-· 🔧 Core Code
-· 📈 Roadmap
-· 📝 License
+- ⭐ [Key Features](#key-features)  
+  _Main functionalities_
 
+- 🛠️ [Tech Stack](#tech-stack)  
+  _Technologies used_
+
+- 🏗️ [Architecture](#architecture)  
+  _System design & high-level overview_
+
+- 📁 [Complete Project Structure](#complete-project-structure)  
+  _Full folder & file tree_
+
+- 🔧 [Core Implementation](#core-implementation)  
+  _Important code snippets_
+
+- 🚀 [Quick Setup](#quick-setup)  
+  _Installation & running guide_
+
+- 🧠 [AI/ML & RAG Pipeline](#aiml--rag-pipeline)  
+  _How the AI & retrieval works_
+
+- 🗄️ [Database Design](#database-design)  
+  _SQLite + Qdrant schema details_
+
+- 📊 [Data Pipeline](#data-pipeline)  
+  _ETL process flow_
+
+- 📈 [Repo Stats](#repo-stats)  
+  _Project statistics & metrics_
+
+- 💼 [Portfolio Value](#portfolio-value)  
+  _Why this project stands out_
+
+- 📝 [License](#license)  
+  _MIT License_
 ---
 
 🎯 Overview
