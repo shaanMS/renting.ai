@@ -486,13 +486,11 @@ Here are some glimpses of the Property Search AI in action:
 ### 1. Main Property Search Interface
 ![Property Search AI - Real Estate Assistant](https://github.com/shaanMS/renting.ai/raw/main/webApp/screenshots/Property%20Search%20AI%20-%20Real%20Estate%20Assistant.png)
 
-### 2. Qdrant Cloud Vector Database Cluster
-![Qdrant Cloud Cluster](https://github.com/shaanMS/renting.ai/raw/main/webApp/screenshots/Screenshot%202026-03-07%20at%2022-04-45%20Qdrant%20Cloud%20%C2%B7%20Cluster.png)
 
-### 3. Another Property Search View
+### 2. Another Property Search View
 ![Property Search Results](https://github.com/shaanMS/renting.ai/raw/main/webApp/screenshots/Screenshot%202026-03-08%20at%2007-49-54%20Property%20Search%20AI%20-%20Real%20Estate%20Assistant.png)
 
-### 4. Architecture / Flow Diagram (Mermaid)
+### 3. Architecture / Flow Diagram (Mermaid)
 ![DeepSeek Mermaid Diagram](https://github.com/shaanMS/renting.ai/raw/main/webApp/screenshots/deepseek_mermaid_20260309_fb5d43.png)
 
 ### Demo Video
