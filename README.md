@@ -58,12 +58,6 @@
 - 📊 [Data Pipeline](#data-pipeline)  
   _ETL process flow_
 
-- 📈 [Repo Stats](#repo-stats)  
-  _Project statistics & metrics_
-
-- 💼 [Portfolio Value](#portfolio-value)  
-  _Why this project stands out_
-
 - 📝 [License](#license)  
   _MIT License_
 ---
