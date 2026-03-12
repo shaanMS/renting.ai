@@ -4,9 +4,9 @@ from qdrant_client import QdrantClient
 
 load_dotenv()
 
-QDRANT_URL = "https://0eeb9ef2-55a9-45fe-8bbd-d9b0c6bf83d8.europe-west3-0.gcp.cloud.qdrant.io"
-QDRANT_API_KEY = os.getenv("QDRANT_KEY")
 
+QDRANT_API_KEY = os.getenv("QDRANT_KEY")
+QDRANT_URL = os.getenv("QDRANT_URL")
 COLLECTION_NAME = "rentals"
 
 # client reuse (important for performance)
