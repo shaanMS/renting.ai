@@ -23,4 +23,5 @@ def createTemplate(template):
     template=template,
     input_variables=["context","question"]
  )
+ print("printing.... for debug prompt = ", prompt)
  return prompt
