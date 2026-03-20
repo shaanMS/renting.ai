@@ -1,7 +1,7 @@
 import sqlite3
 import pandas as pd
 
-
+print('')
 conn = sqlite3.connect("rentals.db")
 cursor = conn.cursor()
 
