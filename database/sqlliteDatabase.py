@@ -8,7 +8,7 @@ df = pd.read_csv(csv_path)
 # 2️⃣ Connect SQLite
 conn = sqlite3.connect("rentals.db")
 cursor = conn.cursor()
-
+print()
 # 3️⃣ Create Table
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS rentals (
