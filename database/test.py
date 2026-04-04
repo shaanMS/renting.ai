@@ -13,5 +13,5 @@ cursor = conn.cursor()
 
 cursor.execute("SELECT ad_id, monthly_rent FROM rentals;")
 print(cursor.fetchall())
-
+print()
 conn.close()
