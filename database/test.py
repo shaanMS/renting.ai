@@ -10,7 +10,7 @@ print()
 print()
 conn = sqlite3.connect("rentals.db")
 cursor = conn.cursor()
-
+print(0
 cursor.execute("SELECT ad_id, monthly_rent FROM rentals;")
 print(cursor.fetchall())
 print()
