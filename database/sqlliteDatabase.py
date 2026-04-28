@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS rentals (
 
 # 4️⃣ Insert Data
 df.to_sql("rentals", conn, if_exists="append", index=False)
-
+print()
 conn.commit()
 conn.close()
 
