@@ -14,4 +14,5 @@ print(0
 cursor.execute("SELECT ad_id, monthly_rent FROM rentals;")
 print(cursor.fetchall())
 print()
+print()
 conn.close()
