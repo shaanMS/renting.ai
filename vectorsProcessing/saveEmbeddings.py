@@ -4,7 +4,7 @@
 # from qdrant_client.models import PointStruct
 # import json
 
-
+print()
 
 # client = QdrantClient("http://localhost:6333")
 
