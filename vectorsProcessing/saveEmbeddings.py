@@ -11,7 +11,7 @@ print()
 # # print("Connected:", client.get_collections())   # checking collections
 # # client.delete_collection("my_collection")
 
-
+print()
 print()
 
 # with open(r"C:\Users\shanU2\Desktop\renting.ai\dataGeneration\embeddings_with_text3.jsonl", "r", encoding="utf-8") as f:
