@@ -15,7 +15,7 @@ from vectorService.vectorSearchService import searchInVector
 load_dotenv()
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-
+print()
 
 def generateResponse(template, query):
 
