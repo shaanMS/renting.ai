@@ -19,6 +19,8 @@ def createTemplate(template):
 # Answer in Hinglish.
 # """
 
+print()
+
  prompt = PromptTemplate(
     template=template,
     input_variables=["context","question"]
